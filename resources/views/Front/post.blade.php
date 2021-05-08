@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Post')
+@section('title', 'test')
 @section('body')
 <!-- Start Main content -->
 
