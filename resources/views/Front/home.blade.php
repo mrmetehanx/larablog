@@ -601,86 +601,27 @@
                             </div>
                             <div class="post-block-list post-module-1">
                                 <ul class="list-post">
-                                    <li class="mb-30 wow fadeInUp animated">
+                                    @foreach ($articles::orderBy('visit','desc')->limit(4)->get() as $article)
+                                    <li class="@if(!$loop->last)mb-30 @endif wow fadeInUp animated">
                                         <div
                                             class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                                             <div class="post-content media-body">
                                                 <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                        href="single.html">Spending Some Quality Time with Kids? It’s
-                                                        Possible</a></h6>
+                                                        href="{{ route('post',$article->slug) }}">{{ $article->title }}</a></h6>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">05 August</span>
-                                                    <span class="post-by has-dot">150 views</span>
+                                                    <span class="post-on">{{ $article->created_at->diffForHumans() }}</span>
+                                                    <span class="post-by has-dot">{{ $article->visit }} views</span>
                                                 </div>
                                             </div>
                                             <div
                                                 class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                <a class="color-white" href="single.html">
-                                                    <img src="assets/imgs/news/thumb-6.jpg" alt="">
+                                                <a class="color-white" href="{{ route('post',$article->slug) }}">
+                                                    <img src="{{ asset($article->img) }}" alt="">
                                                 </a>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="mb-30 wow fadeInUp animated">
-                                        <div
-                                            class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                                            <div class="post-content media-body">
-                                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                        href="single.html">Relationship Podcasts are Having “That”
-                                                        Talk</a></h6>
-                                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">12 August</span>
-                                                    <span class="post-by has-dot">6k views</span>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                <a class="color-white" href="single.html">
-                                                    <img src="assets/imgs/news/thumb-7.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-30 wow fadeInUp animated">
-                                        <div
-                                            class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                                            <div class="post-content media-body">
-                                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                        href="single.html">Here’s How to Get the Best Sleep at Night</a>
-                                                </h6>
-                                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">15 August</span>
-                                                    <span class="post-by has-dot">16k views</span>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                <a class="color-white" href="single.html">
-                                                    <img src="assets/imgs/news/thumb-2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class=" wow fadeInUp animated">
-                                        <div
-                                            class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                                            <div class="post-content media-body">
-                                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                        href="single.html">America’s Governors Get Tested for a Virus
-                                                        That Is Testing Them</a></h6>
-                                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">12 August</span>
-                                                    <span class="post-by has-dot">3k views</span>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                <a class="color-white" href="single.html">
-                                                    <img src="assets/imgs/news/thumb-3.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

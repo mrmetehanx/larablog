@@ -14,6 +14,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $categories = Category::where('parent_id',0)->get();
+        $articles = Article::class;
+        View::share('articles',$articles);
         View::share('categories',$categories);
     }
 

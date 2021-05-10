@@ -16,7 +16,7 @@ use App\http\Controllers\MessageController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/category/{slug}', [HomeController::class, 'category'])->name('category');
-Route::get('/post/{slug}', [HomeController::class, 'post'])->name('post');
+Route::get('/post/{slug}', [HomeController::class, 'post'])->name('post')->middleware('trackVisit');
 Route::get('/author', [HomeController::class, 'author'])->name('author');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
