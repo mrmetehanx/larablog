@@ -8,20 +8,25 @@ use Illuminate\Support\Facades\View;
 
 use App\Models\Category;
 use App\Models\Article;
-
+use App\Models\Tag;
 class HomeController extends Controller
 {
     public function __construct()
     {
         $categories = Category::where('parent_id',0)->get();
-        $articles = Article::class;
-        View::share('articles',$articles);
+        $articles_class = Article::class;
+        $category_full = Category::get();
+        View::share('articles_class',$articles_class);
         View::share('categories',$categories);
+        View::share('category_full',$category_full);
+        View::share('tags',Tag::get());
+        View::share('about', \App\Models\About::first());
     }
 
     public function home()
     {
-        return view('front.home');
+        $latest = Article::orderBy('created_at','asc')->paginate(4);
+        return view('front.home')->with('latest',$latest);
     }
 
     public function category($slug)

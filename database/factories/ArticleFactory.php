@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         $title = $this->faker->sentence(rand(5,9));
-        $rand = rand(0,6);
+        $rand = rand(1,6);
         $rand2 = rand(300,500);
         return [
             'category_id' => $rand,

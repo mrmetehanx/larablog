@@ -34,48 +34,12 @@
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
                         <ul class="list-inline nav-topbar d-none d-md-inline">
-                            <li class="list-inline-item menu-item-has-children"><a href="#">Layouts</a>
-                                <ul class="sub-menu font-small">
-                                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                                        <ul class="sub-menu font-small">
-                                            <li><a href="page-about.html">About</a></li>
-                                            <li><a href="page-contact.html">Contact</a></li>
-                                            <li><a href="page-typography.html">Typography</a></li>
-                                            <li><a href="page-register.html">Register</a></li>
-                                            <li><a href="page-login.html">Login</a></li>
-                                            <li><a href="page-search.html">Search</a></li>
-                                            <li><a href="page-author.html">Author</a></li>
-                                            <li><a href="page-404.html">404 page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">Category</a>
-                                        <ul class="sub-menu font-small">
-                                            <li><a href="category-list.html">List layout</a></li>
-                                            <li><a href="category-grid.html">Grid layout</a></li>
-                                            <li><a href="category-masonry.html">Masonry layout</a></li>
-                                            <li><a href="category-big.html">Big layout</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">Single post</a>
-                                        <ul class="sub-menu font-small">
-                                            <li><a href="single.html">Default</a></li>
-                                            <li><a href="single-2.html">Big image</a></li>
-                                            <li><a href="single-3.html">Left image</a></li>
-                                            <li><a href="single-4.html">With sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="list-inline-item"><a href="http://demos.alithemes.com/html/stories/docs/"><i
-                                        class="elegant-icon icon_document_alt mr-5"></i>Document</a></li>
+                                        class="elegant-icon icon_document_alt mr-5"></i>Patch Notes</a></li>
                         </ul>
                         <span class="vertical-divider mr-20 ml-20 d-none d-md-inline"></span>
                         <button class="search-icon d-none d-md-inline"><span class="mr-15 text-muted font-small"><i
                                     class="elegant-icon icon_search mr-5"></i>Search</span></button>
-                        <a target="_blank"
-                            href="../../../item/stories-personal-blog-html-template/28453702.html"><button
-                                class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow">Buy
-                                Now</button></a>
                     </div>
                 </div>
             </div>
@@ -95,7 +59,9 @@
                                 <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
                                 <ul class="sub-menu text-muted font-small">
                                     @foreach ($category->subcategory as $subcategory)
-                                    <li><a href="{{ route('category',$subcategory->slug) }}">{{ $subcategory->name }}</a></li>
+                                    <li><a
+                                            href="{{ route('category',$subcategory->slug) }}">{{ $subcategory->name }}</a>
+                                    </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -457,62 +423,21 @@
                     <h5 class="mt-5 mb-30">Categories</h5>
                 </div>
                 <div class="carausel-3-columns">
+                    @foreach ($category_full as $category)
                     <div
                         class="carausel-3-columns-item d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5">
                         <div
                             class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a class="color-white" href="single.html">
+                            <a class="color-white" href="{{ route('category',$category->slug) }}">
                                 <img src="{{ asset('assets/imgs/news/thumb-1.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6> <a href="category.html">Travel Tips</a> </h6>
-                            <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
+                            <h6> <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a> </h6>
+                            <p class="text-muted font-small">{{ $category->text }}</p>
                         </div>
                     </div>
-                    <div
-                        class="carausel-3-columns-item d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5">
-                        <div
-                            class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a class="color-white" href="single.html">
-                                <img src="{{ asset('assets/imgs/news/thumb-2.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6><a href="category.html">Lifestyle</a></h6>
-                            <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="carausel-3-columns-item d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5">
-                        <div
-                            class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a class="color-white" href="single.html">
-                                <img src="{{ asset('assets/imgs/news/thumb-3.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6><a href="category.html">Foody</a></h6>
-                            <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="carausel-3-columns-item d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5">
-                        <div
-                            class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a class="color-white" href="single.html">
-                                <img src="{{ asset('assets/imgs/news/thumb-4.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6><a href="category.html">Entertaiment</a></h6>
-                            <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -568,13 +493,9 @@
                             <h5 class="mt-5 mb-30">Tagcloud</h5>
                         </div>
                         <div class="tagcloud mt-50">
-                            <a class="tag-cloud-link" href="category.html">beautiful</a>
-                            <a class="tag-cloud-link" href="category.html">New York</a>
-                            <a class="tag-cloud-link" href="category.html">droll</a>
-                            <a class="tag-cloud-link" href="category.html">intimate</a>
-                            <a class="tag-cloud-link" href="category.html">loving</a>
-                            <a class="tag-cloud-link" href="category.html">travel</a>
-                            <a class="tag-cloud-link" href="category.html">fighting </a>
+                            @foreach ($tags as $tag)
+                                <a class="tag-cloud-link" href="{{ route('category',$tag->slug) }}">{{ $tag->name }}</a>
+                            @endforeach
                         </div>
                     </div>
                 </div>

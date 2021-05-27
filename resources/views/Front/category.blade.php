@@ -40,16 +40,16 @@
                     </div>
                     <div class="post-content p-30">
                         <div class="entry-meta meta-0 font-small mb-10">
-                            <a href="category.html"><span class="post-cat text-success">{{ $article->category->name }}</span></a>
+                            <a href="{{ $article->category->slug }}"><span class="post-cat text-success">{{ $article->category->name }}</span></a>
                         </div>
                         <div class="d-flex post-card-content">
                             <h5 class="post-title mb-20 font-weight-900">
                                 <a href="{{ route('post',$article->slug) }}">{{ $article->title }}</a>
                             </h5>
                             <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                <span class="post-on">27 August</span>
+                                <span class="post-on">{{ $article->created_at }}</span>
                                 <span class="time-reading has-dot">12 mins read</span>
-                                <span class="post-by has-dot">23k views</span>
+                                <span class="post-by has-dot">{{ $article->visit }} views</span>
                             </div>
                         </div>
                     </div>
@@ -59,21 +59,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                {{ $articles->links('vendor.pagination.default') }}
-                <div class="pagination-area mb-30 wow fadeInUp animated">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class="elegant-icon arrow_left"></i></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#">04</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class="elegant-icon arrow_right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
+                {{ $articles->links('vendor.pagination.custom') }}
             </div>
         </div>
     </div>

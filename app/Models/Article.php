@@ -19,6 +19,11 @@ class Article extends Model
         return $this->hasOne(Author::class,'id','author_id');
     }
 
+    public function test()
+    {
+        return  $this->belongsTo(Category::class,'category_id');
+    }
+
     public function comments()
     {
         return  $this->hasMany(Comment::class,'article_id','id');
